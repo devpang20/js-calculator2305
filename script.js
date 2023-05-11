@@ -1,6 +1,8 @@
 class Calculator {
     elePreviousPreview;
     eleCurrentPreview;
+    previousOperand = ""
+    currentOpenrand = ""
 
     constructor(elePreviousPreview, eleCurrentPreview) {
         this.elePreviousPreview = elePreviousPreview
@@ -19,6 +21,33 @@ class Calculator {
         }
 
         this.eleCurrentPreview.textContent += number
+    }
+
+    appendOperation(operation) {
+        // console.log(
+        //   "this.eleCurrentPreview.textContent: ",
+        //   this.eleCurrentPreview.textContent
+        // );
+        // console.log(
+        //   "this.elePreviousPreview.textContent: ",
+        //   this.elePreviousPreview.textContent
+        // );
+        if (
+          (this.eleCurrentPreview.textContent.length < 1 &&
+            this.previousOperand.length > 0) ||
+          (this.eleCurrentPreview.textContent.length > 0 &&
+            this.elePreviousPreview.textContent.length < 1)
+        ) {
+          if (this.previousOperand.length > 0) {
+            // 이미 계산 기호 존재시, 초기화
+            this.elePreviousPreview.textContent =
+              this.elePreviousPreview.textContent.split(" ")[0];
+          }
+          this.previousOperand = operation;
+          this.elePreviousPreview.textContent +=
+            this.eleCurrentPreview.textContent + " " + operation;
+          this.eleCurrentPreview.textContent = "";
+        }
     }
 }
 
@@ -54,5 +83,29 @@ eleNumbers.forEach((eleNumber) => {
         const number = e.target.textContent
         //console.log({number})
         calculator.onPressNumber(number)
+    })
+})
+
+eleOperations.forEach((eleOperation) => {
+    eleOperation.addEventListener("click", (e) => {
+        console.log("eleOperation", eleOperation)
+        switch (eleOperation) {
+            case eleMinus:
+                calculator.appendOperation("-")
+                break
+            case elePlus:
+                calculator.appendOperation("+")
+                break
+            case eleMultiply:
+                calculator.appendOperation("*")
+                break
+            case eleDivide:
+                calculator.appendOperation("÷")
+                break
+            case eleEqual:
+                break    
+            default:
+                break
+        }
     })
 })
