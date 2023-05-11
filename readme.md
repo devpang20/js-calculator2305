@@ -7,6 +7,7 @@
 - [x] constructor 만들기
 - [x] 숫자 버튼 기능 구현 
 - [x] onPressNumber 만들기
-- [ ] 사칙연산 버튼 기능 구현
-- [ ] appendOperation 만들기
-- [ ]
+- [x] 사칙연산 버튼 기능 구현
+- [x] appendOperation 만들기
+- [x] onEuqal 기능 만들기
+- []
