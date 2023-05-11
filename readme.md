@@ -6,4 +6,4 @@
 - [x] calculator class 만들기
 - [x] constructor 만들기
 - [x] 숫자 버튼 기능 구현 
-- [] onPressNumber 만들기
+- [x] onPressNumber 만들기

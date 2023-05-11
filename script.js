@@ -6,6 +6,20 @@ class Calculator {
         this.elePreviousPreview = elePreviousPreview
         this.eleCurrentPreview = eleCurrentPreview
     }
+
+    onPressNumber(number) {
+        //console.log("this.eleCurrentPreview", this.eleCurrentPreview)
+        if (number === ".") {
+            if (            
+                this.eleCurrentPreview.textContent.length < 1 ||
+                this.eleCurrentPreview.textContent.includes(".")
+            ) {
+                return
+            }
+        }
+
+        this.eleCurrentPreview.textContent += number
+    }
 }
 
 /*
@@ -38,6 +52,7 @@ const calculator = new Calculator(elePreviousPreview, eleCurrentPreview);
 eleNumbers.forEach((eleNumber) => {
     eleNumber.addEventListener("click", (e) => {
         const number = e.target.textContent
-        console.log({number})
+        //console.log({number})
+        calculator.onPressNumber(number)
     })
 })
