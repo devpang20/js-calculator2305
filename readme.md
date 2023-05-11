@@ -2,5 +2,5 @@
 
 ## 2023-05-11 
 - [x] 기본 UI 완성
-- [ ] data-* 요소 삽입
+- [x] data-* 요소 삽입
 - [ ] calculator class 만들기
