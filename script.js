@@ -64,6 +64,13 @@ class Calculator {
         this.currentOpenrand = ""
     }
 
+    onDelete() {
+        if (this.eleCurrentPreview.textContent.length > 0) {
+            this.eleCurrentPreview.textContent = 
+            this.eleCurrentPreview.textContent.slice(0, -1)
+        }
+    }
+
 
     handlePlus() {
         return (
