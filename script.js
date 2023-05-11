@@ -1,6 +1,6 @@
 class Calculator {
-    elePreviousPreview;
-    eleCurrentPreview;
+    elePreviousPreview
+    eleCurrentPreview
     previousOperand = ""
     currentOpenrand = ""
 
@@ -56,6 +56,14 @@ class Calculator {
             this.elePreviousPreview.textContent = ""
         }
     }
+    
+    onReset() {
+        this.elePreviousPreview.textContent = ""
+        this.eleCurrentPreview.textContent = ""
+        this.previousOperand = ""
+        this.currentOpenrand = ""
+    }
+
 
     handlePlus() {
         return (
@@ -127,10 +135,11 @@ const eleMinus = document.querySelector("[data-btn-minus]")
 const elePlus = document.querySelector("[data-btn-plus]")
 const eleMultiply = document.querySelector("[data-btn-multiply]")
 const eleDivide = document.querySelector("[data-btn-divide]")
+const eleEqual = document.querySelector("[data-btn-Equal]")
 
 const eleReset = document.querySelector("[data-btn-reset]")
 const eleDelete = document.querySelector("[data-btn-delete]")
-const eleEqual = document.querySelector("[data-btn-Equal]")
+
 
 /* 
 * 다중 선택 
@@ -138,10 +147,7 @@ const eleEqual = document.querySelector("[data-btn-Equal]")
 const eleNumbers = document.querySelectorAll("[data-btn-number]")
 const eleOperations = document.querySelectorAll("[data-btn-operation]")
 
-
-
 const calculator = new Calculator(elePreviousPreview, eleCurrentPreview);
-
 
 // 숫자 처리
 eleNumbers.forEach((eleNumber) => {
@@ -177,3 +183,6 @@ eleOperations.forEach((eleOperation) => {
         }
     })
 })
+
+eleReset.addEventListener("click", (e) => calculator.onReset())
+eleDelete.addEventListener("click", (e) => calculator.onDelete())
